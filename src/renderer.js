@@ -10,7 +10,9 @@ import { world_shader_t } from "./world_shader.js";
 import { vec2_t, vec3_t, mat4_t } from "./math.js";
 
 export class renderer_t {
-  constructor() {
+  constructor(game) {
+    this.game = game;
+    
     this.mesh_buffer = new mesh_buffer_t(16 * 1024);
     this.camera = new camera_t();
     this.world_shader = new world_shader_t();
@@ -26,6 +28,7 @@ export class renderer_t {
   
   render() {
     gl.clear(gl.COLOR_BUFFER_BIT);
+    this.camera.pos = this.game.pos;
     this.camera.update_view();
     this.world_shader.set_mvp(this.camera.get_mvp(mat4_t.init_identity()));
     this.map_renderer.render();
