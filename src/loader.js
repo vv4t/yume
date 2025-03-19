@@ -2,33 +2,31 @@
 
 const root_dir = window.location;
 
-export async function load_file(path, on_loaded) {
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-      if (xhr.status == 200) {
-        on_loaded(xhr.responseText);
-      } else {
-        throw "could not load file '" + path + "'";
-      }
+export class loader_t {
+  constructor() {}
+  
+  async load_file(path) {
+    const result = await fetch(path);
+    if (result.ok) {
+      return result.text();
     }
-  };
+    return null;
+  }
   
-  xhr.open("GET", root_dir + path);
-  xhr.send();
-}
-
-export async function load_json(path, on_loaded) {
-  load_file(path, (file) => {
-    on_loaded(JSON.parse(file));
-  });
-}
-
-export async function load_image(path, on_loaded) {
-  const image = new Image();
-  image.onload = function() {
-    on_loaded(image);
-  };
+  async load_json(path) {
+    const result = await fetch(path);
+    if (result.ok) {
+      return result.json();
+    }
+    return null;
+  }
   
-  image.src = root_dir + path;
-}
+  async load_image(path) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = () => reject();
+      image.src = path;
+    });
+  }
+};

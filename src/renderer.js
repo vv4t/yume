@@ -3,6 +3,7 @@
 import { gl } from "./display.js";
 import { shader_t } from "./shader.js";
 import { mesh_buffer_t } from "./mesh.js";
+import { texture_t } from "./texture.js";
 import { vertex_t } from "./vertex.js";
 import { vec2_t, vec3_t, mat4_t } from "./math.js";
 import { get_asset } from "./assets.js";
@@ -12,8 +13,8 @@ export class renderer_t {
     this.mesh_buffer = new mesh_buffer_t(4096);
     this.mesh_buffer.bind();
     
-    const src_vertex = get_asset("shader.vert");
-    const src_fragment = get_asset("shader.frag");
+    const src_vertex = get_asset("assets/shader.vert");
+    const src_fragment = get_asset("assets/shader.frag");
     
     this.shader = new shader_t(src_vertex, src_fragment);
     this.shader.bind();
@@ -34,7 +35,7 @@ export class renderer_t {
     ];
     
     this.mesh = this.mesh_buffer.push(vertices);
-    this.texture = new texture_t(get_asset("image.png"));
+    this.texture = new texture_t(get_asset("assets/test.png"));
     
     gl.clearColor(0.5, 0.7, 1.0, 1.0);
   }
