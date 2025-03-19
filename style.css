@@ -1,0 +1,9 @@
+body {
+  text-align: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#display {
+  border: 1px solid;
+}
