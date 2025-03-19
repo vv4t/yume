@@ -135,4 +135,20 @@ export class mat4_t {
       new vec4_t(0,0,0,1)
     );
   }
+  
+  static init_orthogonal(l, r, t, b, n, f) {
+    const u = 2 / (r - l);
+    const v = 2 / (t - b);
+    const w = -2 / (f - n);
+    const x = -(r + l) / (r - l);
+    const y = -(t + b) / (t - b);
+    const z = -(f + n) / (f - n);
+    
+    return new mat4_t(
+      new vec4_t(u,0,0,0),
+      new vec4_t(0,v,0,0),
+      new vec4_t(0,0,w,0),
+      new vec4_t(x,y,z,1)
+    );
+  }
 }
