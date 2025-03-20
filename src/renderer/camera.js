@@ -1,11 +1,11 @@
 "use strict";
 
-import { vec2_t, vec3_t, mat4_t } from "./math.js";
+import { vec2_t, vec3_t, mat4_t } from "../util/math.js";
 
 export class camera_t {
   constructor() {
     this.pos = new vec3_t();
-    this.p = mat4_t.init_orthogonal(-10, 10, 7.5, -7.5, -5.0, 5.0);
+    this.p = mat4_t.init_orthogonal(-9.5, 10.5, 8.0, -7.0, -10.0, 10.0);
     this.update_view();
   }
   

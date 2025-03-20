@@ -1,11 +1,11 @@
 "use strict";
 
-import { loader_t } from "./loader.js";
+import { loader_t } from "../util/loader.js";
 
 const files = [
   [ "assets/shader.vert", "text" ],
   [ "assets/shader.frag", "text" ],
-  [ "assets/test.png", "image" ]
+  [ "assets/tilemap.png", "image" ]
 ];
 
 const asset_library = {};

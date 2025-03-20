@@ -1,7 +1,5 @@
 "use strict";
 
-const root_dir = window.location;
-
 export class loader_t {
   constructor() {}
   

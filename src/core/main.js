@@ -2,8 +2,8 @@
 
 import { game_t } from "./game.js";
 import { input_t, input_axis } from "./input.js";
-import { renderer_t } from "./renderer.js";
-import { load_assets } from "./assets.js";
+import { renderer_t } from "../renderer/renderer.js";
+import { load_assets } from "../core/assets.js";
 
 function run() {
   const input = new input_t();

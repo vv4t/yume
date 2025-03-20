@@ -22,6 +22,13 @@ export class vec2_t {
       this.y * f
     );
   }
+
+  mul(v) {
+    return new vec2_t(
+      this.x * v.x,
+      this.y * v.y
+    );
+  }
 }
 
 export class vec3_t {

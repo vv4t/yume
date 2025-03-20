@@ -1,7 +1,7 @@
 "use strict";
 
 import { gl } from "./display.js";
-import { get_asset } from "./assets.js";
+import { get_asset } from "../core/assets.js";
 import { shader_t } from "./shader.js";
 
 export class world_shader_t {
