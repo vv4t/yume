@@ -31,7 +31,7 @@ export class renderer_t {
   
   render() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    this.camera.pos = this.game.pos;
+    this.camera.pos = this.game.player.pos;
     this.camera.update_view();
     this.world_shader.set_mvp(this.camera.get_mvp(mat4_t.init_identity()));
     this.map_renderer.render();
