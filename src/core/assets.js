@@ -3,9 +3,11 @@
 import { loader_t } from "../util/loader.js";
 
 const files = [
-  [ "assets/shader.vert", "text" ],
-  [ "assets/shader.frag", "text" ],
-  [ "assets/tilemap.png", "image" ]
+  [ "assets/shaders/world.vert", "text" ],
+  [ "assets/shaders/world.frag", "text" ],
+  [ "assets/tilesets/sprites.png", "image" ],
+  [ "assets/tilesets/untitled.png", "image" ],
+  [ "assets/maps/untitled.tmj", "json" ],
 ];
 
 const asset_library = {};

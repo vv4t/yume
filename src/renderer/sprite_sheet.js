@@ -5,8 +5,8 @@ import { get_asset } from "../core/assets.js";
 import { vec2_t } from "../util/math.js";
 
 export class sprite_sheet_t {
-  constructor() {
-    this.texture = new texture_t(get_asset("assets/tilemap.png"));
+  constructor(path) {
+    this.texture = new texture_t(get_asset(path));
     this.tile = 32;
     this.width = this.texture.width / this.tile;
     this.height = this.texture.height / this.tile;

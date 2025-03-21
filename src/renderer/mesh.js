@@ -83,6 +83,10 @@ export class mesh_buffer_t {
     return new mesh_t(offset, num_vertices);
   }
   
+  reset(top_ptr) {
+    this.top_ptr = top_ptr;
+  }
+
   put(mesh, offset, vertices) {
     if (mesh.offset + offset + vertices.length > this.max_vertices)
       throw "too many vertices";
