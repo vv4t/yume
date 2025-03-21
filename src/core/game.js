@@ -1,6 +1,7 @@
 "use strict";
 
 import { map_t } from "./map.js";
+import { map_collider_t } from "./map_collider.js";
 import { player_t } from "./player.js";
 
 export class game_t {
@@ -15,12 +16,32 @@ export class game_t {
   
   update() {
     this.player.move(this.input);
+    this.body_collide();
     this.body_integrate();
   }
 
   load_map(name) {
     const map = new map_t(name);
+    this.map_collider = new map_collider_t(map);
     for (const listener of this.map_load_listeners) listener(map);
+  }
+
+  body_collide() {
+    if (!this.map_collider) return;
+
+    for (const entity in this.c_body) {
+      const body = this.c_body[entity];
+      const collision = this.map_collider.check(body);
+
+      if (collision.x) {
+        body.vel.x = 0.0;
+      }
+
+      if (collision.y) {
+        body.vel.y = 0.0;
+      }
+      // console.log(collision);
+    }
   }
 
   body_integrate() {

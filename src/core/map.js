@@ -14,8 +14,8 @@ export class map_t {
     this.layers = [];
 
     for (const layer of data.layers) {
-      if (layer.name === "colliders") {
-        this.colliders = layer.data;
+      if (layer.name === "collision") {
+        this.collision = layer.data;
       } else {
         this.layers.push(layer.data);
       }
