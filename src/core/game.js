@@ -31,16 +31,10 @@ export class game_t {
 
     for (const entity in this.c_body) {
       const body = this.c_body[entity];
-      const collision = this.map_collider.check(body);
+      const collision = this.map_collider.collide(body);
 
-      if (collision.x) {
-        body.vel.x = 0.0;
-      }
-
-      if (collision.y) {
-        body.vel.y = 0.0;
-      }
-      // console.log(collision);
+      if (collision.x) body.vel.x = 0.0;
+      if (collision.y) body.vel.y = 0.0;
     }
   }
 

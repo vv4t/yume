@@ -21,7 +21,7 @@ export class map_collider_t {
     return this.collision[x + (this.height - y - 1) * this.width];
   }
 
-  hit(x, y) {
+  check(x, y) {
     const x1 = Math.floor(x);
     const y1 = Math.floor(y);
     const x2 = Math.floor(x + 1);
@@ -35,15 +35,15 @@ export class map_collider_t {
     return false;
   }
 
-  check(body) {
+  collide(body) {
     const x1 = body.pos.x;
     const y1 = body.pos.y;
     const x2 = body.pos.x + body.vel.x;
     const y2 = body.pos.y + body.vel.y;
 
-    if (this.hit(x2, y2)) {
-      if (!this.hit(x1, y2)) return new vec3_t(1, 0);
-      else if (!this.hit(x2, y1)) return new vec3_t(0, 1);
+    if (this.check(x2, y2)) {
+      if (!this.check(x1, y2)) return new vec3_t(1, 0);
+      else if (!this.check(x2, y1)) return new vec3_t(0, 1);
       else return new vec3_t(1, 1);
     }
 
