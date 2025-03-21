@@ -29,6 +29,11 @@ export class vec2_t {
       this.y * v.y
     );
   }
+
+  set(v) {
+    this.x = v.x;
+    this.y = v.y;
+  }
 }
 
 export class vec3_t {
@@ -52,6 +57,12 @@ export class vec3_t {
       this.y * f,
       this.z * f
     );
+  }
+  
+  set(v) {
+    this.x = v.x;
+    this.y = v.y;
+    this.z = v.z;
   }
 }
 

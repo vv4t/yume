@@ -33,11 +33,12 @@ export class renderer_t {
     if (this.map_renderer) this.map_renderer.destroy();
     this.mesh_buffer.reset(this.base_mesh);
     this.map_renderer = new map_renderer_t(this.mesh_buffer, map);
+    this.camera.bound(map.width, map.height);
   }
   
   render() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    this.camera.pos = this.game.c_body[this.game.player.id].pos;
+    this.camera.follow(this.game.c_body[this.game.player.id].pos);
     this.camera.update_view();
     this.world_shader.set_mvp(this.camera.get_mvp(mat4_t.init_identity()));
     this.map_renderer.render();
