@@ -7,12 +7,12 @@ import { vec2_t, vec3_t, mat4_t } from "../util/math.js";
 const MAX_TILES = 32;
 
 export class sprite_renderer_t {
-  constructor(mesh_buffer, sprite_array) {
+  constructor(mesh_buffer, game) {
     this.mesh_buffer = mesh_buffer;
     this.sprite_sheet = new sprite_sheet_t("assets/tilesets/sprites.png");
-    this.sprite_array = sprite_array;
     this.num_vertices = 0;
     this.mesh = this.mesh_buffer.allocate(6 * MAX_TILES);
+    this.game = game;
   }
   
   render() {
@@ -24,8 +24,13 @@ export class sprite_renderer_t {
   update_mesh() {
     const vertices = [];
 
-    for (const sprite of this.sprite_array) {
-      vertices.push(...this.build_sprite(sprite.pos, sprite.size, sprite.sprite_id));
+    for (const entity in this.game.c_sprite) {
+      if (!(entity in this.game.c_body)) continue;
+      
+      const body = this.game.c_body[entity];
+      const sprite = this.game.c_sprite[entity];
+
+      vertices.push(...this.build_sprite(body.pos, sprite.size, sprite.sprite_id));
     }
     
     this.mesh_buffer.put(this.mesh, 0, vertices);

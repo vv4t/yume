@@ -17,7 +17,7 @@ export class renderer_t {
     this.mesh_buffer = new mesh_buffer_t(16 * 1024);
     this.camera = new camera_t();
     this.world_shader = new world_shader_t();
-    this.sprite_renderer = new sprite_renderer_t(this.mesh_buffer, this.game.sprite_array);
+    this.sprite_renderer = new sprite_renderer_t(this.mesh_buffer, this.game);
     this.base_mesh = this.mesh_buffer.top_ptr;
     
     this.world_shader.bind();
@@ -37,7 +37,7 @@ export class renderer_t {
   
   render() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    this.camera.pos = this.game.player.pos;
+    this.camera.pos = this.game.c_body[this.game.player.id].pos;
     this.camera.update_view();
     this.world_shader.set_mvp(this.camera.get_mvp(mat4_t.init_identity()));
     this.map_renderer.render();

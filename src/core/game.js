@@ -6,13 +6,16 @@ import { player_t } from "./player.js";
 export class game_t {
   constructor(input) {
     this.input = input;
-    this.sprite_array = [];
+    this.entity_id = 0;
+    this.c_body = {};
+    this.c_sprite = {};
     this.map_load_listeners = [];
     this.create_player();
   }
   
   update() {
-    this.player.move();
+    this.player.move(this.input);
+    this.body_integrate();
   }
 
   load_map(name) {
@@ -20,12 +23,25 @@ export class game_t {
     for (const listener of this.map_load_listeners) listener(map);
   }
 
-  add_map_load_listener(listener) {
-    this.map_load_listeners.push(listener);
+  body_integrate() {
+    for (const entity in this.c_body) {
+      const body = this.c_body[entity];
+      body.pos = body.pos.add(body.vel);
+    }
   }
 
   create_player() {
-    this.player = new player_t(this.input);
-    this.sprite_array.push(this.player.sprite);
+    const id = this.add_entity();
+    this.player = new player_t(id);
+    this.c_body[id] = this.player.body;
+    this.c_sprite[id] = this.player.sprite;
+  }
+
+  add_entity() {
+    return this.entity_id++;
+  }
+
+  add_map_load_listener(listener) {
+    this.map_load_listeners.push(listener);
   }
 };

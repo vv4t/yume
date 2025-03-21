@@ -1,6 +1,6 @@
 "use strict";
 
-import { vec2_t, vec3_t, mat4_t } from "../util/math.js";
+import { vec3_t, mat4_t } from "../util/math.js";
 
 export class camera_t {
   constructor() {
