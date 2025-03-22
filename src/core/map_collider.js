@@ -18,14 +18,14 @@ export class map_collider_t {
       return 1;
     }
 
-    return this.collision[x + (this.height - y - 1) * this.width];
+    return this.collision[x + y * this.width];
   }
 
   check(x, y) {
     const x1 = Math.floor(x);
     const y1 = Math.floor(y);
-    const x2 = Math.floor(x + 1);
-    const y2 = Math.floor(y + 1);
+    const x2 = Math.floor(x + 0.9);
+    const y2 = Math.floor(y + 0.9);
 
     if (this.get(x1, y1)) return true;
     if (this.get(x2, y1)) return true;

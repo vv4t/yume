@@ -14,7 +14,7 @@ export class renderer_t {
     this.game = game;
     this.game.add_map_load_listener((map) => this.map_load(map));
     
-    this.mesh_buffer = new mesh_buffer_t(16 * 1024);
+    this.mesh_buffer = new mesh_buffer_t(1024 * 1024);
     this.camera = new camera_t();
     this.world_shader = new world_shader_t();
     this.sprite_renderer = new sprite_renderer_t(this.mesh_buffer, this.game);
@@ -41,7 +41,8 @@ export class renderer_t {
     this.camera.follow(this.game.c_body[this.game.player.id].pos);
     this.camera.update_view();
     this.world_shader.set_mvp(this.camera.get_mvp(mat4_t.init_identity()));
-    this.map_renderer.render();
+    this.map_renderer.render_floor(this.camera.pos);
     this.sprite_renderer.render();
+    this.map_renderer.render_ceiling(this.camera.pos);
   }
 };
