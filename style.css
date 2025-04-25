@@ -2,8 +2,17 @@ body {
   text-align: center;
   width: 100%;
   overflow-x: hidden;
+  background-color: black;
 }
 
-#display {
+#content {
   border: 1px solid;
+}
+
+textarea {
+  vertical-align: top;
+  height: 600px;
+  resize: none;
+  color: #aaffaa;
+  background-color: black;
 }
