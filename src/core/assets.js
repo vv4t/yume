@@ -7,7 +7,9 @@ const files = [
   [ "assets/shaders/world.frag", "text" ],
   [ "assets/tilesets/sprites.png", "image" ],
   [ "assets/tilesets/untitled.png", "image" ],
+  [ "assets/tilesets/desert.png", "image" ],
   [ "assets/maps/untitled.tmj", "json" ],
+  [ "assets/maps/desert.tmj", "json" ],
 ];
 
 const asset_library = {};

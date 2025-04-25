@@ -82,8 +82,8 @@ export class map_renderer_t {
           if (sprite_id === 0)
             continue;
           
-          const tile = this.build_tile(xt, yt, z, sprite_id - 1);
-          if (z == 0) floor.push(...tile);
+          const tile = this.build_tile(xt, yt, z <= 1 ? z * 0.01 : z, sprite_id - 1);
+          if (z <= 1) floor.push(...tile);
           else ceiling.push(...tile);
         }
       }
