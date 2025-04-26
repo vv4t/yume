@@ -67,8 +67,19 @@ export class map_renderer_t {
     const floor = [];
     const ceiling = [];
 
+    const has_ceiling = map.layers.some((layer) => layer.name === "ceiling");
+    let is_floor = true;
+
     for (let z = 0; z < map.layers.length; z++) {
-      const layer = map.layers[z];
+      const layer = map.layers[z].data;
+
+      if (has_ceiling) {
+        if (map.layers[z].name === "ceiling") {
+          is_floor = false;
+        }
+      } else {
+        is_floor = z < 1;
+      }
 
       for (let i = 0; i < CHUNK_SIZE; i++) {
         for (let j = 0; j < CHUNK_SIZE; j++) {
@@ -82,8 +93,8 @@ export class map_renderer_t {
           if (sprite_id === 0)
             continue;
           
-          const tile = this.build_tile(xt, yt, z <= 1 ? z * 0.01 : z, sprite_id - 1);
-          if (z <= 1) floor.push(...tile);
+          const tile = this.build_tile(xt, yt, is_floor ? z * 0.01 : z, sprite_id - 1);
+          if (is_floor) floor.push(...tile);
           else ceiling.push(...tile);
         }
       }

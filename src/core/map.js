@@ -3,6 +3,13 @@
 import { get_asset } from "../core/assets.js";
 import { path_simplify } from "../util/path.js";
 
+export class layer_t {
+  constructor(name, data) {
+    this.name = name;
+    this.data = data;
+  }
+};
+
 export class map_t {
   constructor(name) {
     const base_dir = "assets/maps";
@@ -25,8 +32,8 @@ export class map_t {
       if (layer.name === "collision") {
         this.collision = data;
       } else {
-        this.layers.push(data);
+        this.layers.push(new layer_t(layer.name, data));
       }
     }
   }
-};
+}
