@@ -2,10 +2,12 @@
 
 import { map_collider_t } from "./map_collider.js";
 import { player_t } from "./player.js";
+import { vec3_t } from "../util/math.js";
 
 export class game_t {
-  constructor(input) {
+  constructor(bus, input) {
     this.input = input;
+    this.bus = bus;
     this.entity_id = 0;
     this.c_body = {};
     this.c_sprite = {};
@@ -20,7 +22,8 @@ export class game_t {
 
   load_map(map) {
     this.map_collider = new map_collider_t(map);
-    
+    this.player.spawn(new vec3_t());
+
     for (const spawn of map.spawns) {
       if (spawn.name === "player") {
         this.player.spawn(spawn.pos);
@@ -30,6 +33,9 @@ export class game_t {
 
   body_collide() {
     if (!this.map_collider) return;
+
+    const triggers = this.map_collider.check_trigger(this.player.body);
+    this.bus.raise_events(triggers);
 
     for (const entity in this.c_body) {
       const body = this.c_body[entity];

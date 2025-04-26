@@ -13,6 +13,10 @@ export class sprite_sheet_t {
     this.scale = new vec2_t(this.tile / this.texture.width, this.tile / this.texture.height);
   }
 
+  destroy() {
+    this.texture.destroy();
+  }
+
   bind() {
     this.texture.bind();
   }

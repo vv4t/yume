@@ -310,7 +310,7 @@
                 {
                  "height":64.6666666666667,
                  "id":1,
-                 "name":"load_map_chambers",
+                 "name":"load_map_largechamber",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -338,8 +338,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1.89393939393939,
-                 "y":94.1818181818182
+                 "x":14.8939393939394,
+                 "y":85.9318181818182
                 }],
          "opacity":1,
          "type":"objectgroup",

@@ -16,6 +16,10 @@ export class map_renderer_t {
     this.build_map(map);
   }
 
+  destroy() {
+    this.sprite_sheet.destroy();
+  }
+
   render_floor(pos) {
     this.render_part(pos, this.floor);
   }

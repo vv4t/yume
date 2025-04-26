@@ -1,0 +1,46 @@
+** ENTRANCE
+as the player walks around, there are swarms of small creature
+when the player is about to step onto the stairs, the swarm assembles into an
+"amalgamate", blocking the player
+
+AMALGAMATE:
+  I welcome you to the city, traveller.
+
+PLAYER:
+  Thank you.
+
+AMALGMATE:
+  You understand me. It seems you have already learnt our language. I
+  congratulate you. It is a wonderful surprise that someone has been able to
+  make use of my stone.
+
+PLAYER:
+  Were you the one that carved the stone?
+
+AMALGAMATE:
+  I've been awoken by many travllers. It took a few to learn some common
+  passerby languages. It took many more to learn of their language schemas. And
+  many, many more to inscribe our own language onto one.
+
+AMALGAMATE:
+  But it was worth the effort. What misery it is, waking up to someone I can't
+  talk with. Please, tell me about yourself.
+
+PLAYER:
+  As you have already gathered, I am a travller, an ambassador for a distant
+  peoples. This structure, its announces its presence quite loudly. I have come
+  for my people to investigate. Please, tell who you are and about this place.
+
+AMALGAMATE:
+  
+
+AMALGAMATE:
+  I remember when the starry sky would also stay still from moment to moment.
+  Now, every time as I awaken, they seem to have ran off to some different spot.
+  The only thing still here as always, the slow dull drones of the net.
+
+PLAYER:
+  Your stone? Were you the one that carved the language relief?
+
+PLAYER:
+  
