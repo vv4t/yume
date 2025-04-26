@@ -17,7 +17,7 @@ function run() {
   input.bind_key_to_axis("a", input_axis.LEFT);
   input.bind_key_to_axis("d", input_axis.RIGHT);
   
-  const map = new map_t("finalchamber");
+  const map = new map_t("desert");
 
   game.load_map(map);
   renderer.load_map(map);

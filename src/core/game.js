@@ -1,6 +1,5 @@
 "use strict";
 
-import { map_t } from "./map.js";
 import { map_collider_t } from "./map_collider.js";
 import { player_t } from "./player.js";
 
@@ -21,6 +20,12 @@ export class game_t {
 
   load_map(map) {
     this.map_collider = new map_collider_t(map);
+    
+    for (const spawn of map.spawns) {
+      if (spawn.name === "player") {
+        this.player.spawn(spawn.pos);
+      }
+    }
   }
 
   body_collide() {

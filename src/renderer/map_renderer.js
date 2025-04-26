@@ -3,9 +3,9 @@
 import { vertex_t } from "./vertex.js";
 import { sprite_sheet_t } from "./sprite_sheet.js";
 import { vec2_t, vec3_t, mat4_t } from "../util/math.js";
+import { TILE_SIZE } from "../core/map.js";
 
-const TILE_SIZE = 32;
-const CHUNK_SIZE = 32;
+export const CHUNK_SIZE = 32;
 
 export class map_renderer_t {
   constructor(mesh_buffer, map) {

@@ -11,6 +11,10 @@ export class player_t {
     this.body = new body_t();
     this.sprite = new sprite_t(new vec2_t(1, 2), 0);
   }
+
+  spawn(pos) {
+    this.body.pos = pos;
+  }
   
   move(input) {
     let move = new vec3_t();
