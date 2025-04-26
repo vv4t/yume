@@ -10,7 +10,6 @@ export class game_t {
     this.entity_id = 0;
     this.c_body = {};
     this.c_sprite = {};
-    this.map_load_listeners = [];
     this.create_player();
   }
   
@@ -20,10 +19,8 @@ export class game_t {
     this.body_integrate();
   }
 
-  load_map(name) {
-    const map = new map_t(name);
+  load_map(map) {
     this.map_collider = new map_collider_t(map);
-    for (const listener of this.map_load_listeners) listener(map);
   }
 
   body_collide() {
@@ -54,9 +51,5 @@ export class game_t {
 
   add_entity() {
     return this.entity_id++;
-  }
-
-  add_map_load_listener(listener) {
-    this.map_load_listeners.push(listener);
   }
 };

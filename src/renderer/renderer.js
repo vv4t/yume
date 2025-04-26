@@ -12,7 +12,6 @@ import { vec2_t, vec3_t, mat4_t } from "../util/math.js";
 export class renderer_t {
   constructor(game) {
     this.game = game;
-    this.game.add_map_load_listener((map) => this.map_load(map));
     
     this.mesh_buffer = new mesh_buffer_t(1024 * 1024);
     this.camera = new camera_t();
@@ -29,7 +28,7 @@ export class renderer_t {
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
   }
 
-  map_load(map) {
+  load_map(map) {
     if (this.map_renderer) this.map_renderer.destroy();
     this.mesh_buffer.reset(this.base_mesh);
     this.map_renderer = new map_renderer_t(this.mesh_buffer, map);

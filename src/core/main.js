@@ -1,5 +1,6 @@
 "use strict"
 
+import { map_t } from "./map.js";
 import { game_t } from "./game.js";
 import { input_t, input_axis } from "./input.js";
 import { play_text } from "./text.js";
@@ -15,8 +16,11 @@ function run() {
   input.bind_key_to_axis("s", input_axis.DOWN);
   input.bind_key_to_axis("a", input_axis.LEFT);
   input.bind_key_to_axis("d", input_axis.RIGHT);
+  
+  const map = new map_t("finalchamber");
 
-  game.load_map("largechamber");
+  game.load_map(map);
+  renderer.load_map(map);
 
   function update() {
     game.update();
