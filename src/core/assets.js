@@ -10,10 +10,12 @@ const files = [
   [ "assets/tilesets/desert.png", "image" ],
   [ "assets/tilesets/down_the_stairs.png", "image" ],
   [ "assets/tilesets/finalchamber.png", "image" ],
+  [ "assets/tilesets/largechamber.png", "image" ],
   [ "assets/maps/untitled.tmj", "json" ],
   [ "assets/maps/desert.tmj", "json" ],
   [ "assets/maps/lv1.tmj", "json" ],
   [ "assets/maps/down-the-stairs.tmj", "json" ],
+  [ "assets/maps/largechamber.tmj", "json" ],
   [ "assets/maps/finalchamber.tmj", "json" ],
 ];
 

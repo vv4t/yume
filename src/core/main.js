@@ -16,7 +16,7 @@ function run() {
   input.bind_key_to_axis("a", input_axis.LEFT);
   input.bind_key_to_axis("d", input_axis.RIGHT);
 
-  game.load_map("finalchamber");
+  game.load_map("largechamber");
 
   function update() {
     game.update();
