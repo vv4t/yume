@@ -4,10 +4,16 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="content">
+    <div>
       <canvas width="800" height="600" id="display"></canvas>
-      <textarea cols="64" id="text" readonly>hi there</textarea>
-      <script src="src/core/main.js" type="module"></script>
     </div>
+    <div class="side">
+      <textarea cols="64" rows="38" id="text" readonly></textarea>
+      <br>
+      <button id="log_main">MAIN</button>
+      <button id="log_1">LOG 1</button>
+      <button id="log_2">LOG 2</button>
+    </div>
+    <script src="src/core/main.js" type="module"></script>
   </body>
 </html>

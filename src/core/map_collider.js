@@ -2,11 +2,15 @@
 
 import { vec3_t } from "../util/math.js";
 
+const COLLIDER_WIDTH = 0.9;
+const COLLIDER_HEIGHT = 0.9;
+
 export class map_collider_t {
   constructor(map) {
     this.width = map.width;
     this.height = map.height;
     this.collision = new Uint8Array(map.width * map.height);
+    this.triggers = map.triggers;
 
     for (let i = 0; i < map.collision.length; i++) {
       this.collision[i] = map.collision[i];
@@ -21,11 +25,28 @@ export class map_collider_t {
     return this.collision[x + y * this.width];
   }
 
+  check_trigger(body) {
+    const triggers = [];
+
+    for (const trigger of this.triggers) {
+      if (
+        body.pos.x + COLLIDER_WIDTH > trigger.pos.x &&
+        body.pos.y + COLLIDER_HEIGHT > trigger.pos.y &&
+        body.pos.x < trigger.pos.x + trigger.size.x &&
+        body.pos.y < trigger.pos.y + trigger.size.y
+      ) {
+        triggers.push(trigger.name);
+      }
+    }
+
+    return triggers;
+  }
+
   check(x, y) {
     const x1 = Math.floor(x);
     const y1 = Math.floor(y);
-    const x2 = Math.floor(x + 0.9);
-    const y2 = Math.floor(y + 0.9);
+    const x2 = Math.floor(x + COLLIDER_WIDTH);
+    const y2 = Math.floor(y + COLLIDER_HEIGHT);
 
     if (this.get(x1, y1)) return true;
     if (this.get(x2, y1)) return true;

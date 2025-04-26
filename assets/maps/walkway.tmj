@@ -215,8 +215,8 @@
             0, 0, 0, 0, 0, 0, 0, 0, 449, 0, 449, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 449, 0, 449, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 449, 0, 449, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            449, 449, 449, 449, 449, 449, 449, 449, 449, 0, 449, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 449, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            0, 0, 0, 0, 0, 0, 0, 0, 449, 0, 449, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 449, 0, 449, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":64,
          "id":3,
          "name":"collision",
@@ -226,9 +226,54 @@
          "width":20,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":4,
+         "name":"spawns",
+         "objects":[
+                {
+                 "height":0,
+                 "id":5,
+                 "name":"player",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":302,
+                 "y":2032
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":5,
+         "name":"triggers",
+         "objects":[
+                {
+                 "height":51.3333333333333,
+                 "id":4,
+                 "name":"load_map_finalchamber",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":90.6666666666666,
+                 "x":261,
+                 "y":41.3333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":4,
- "nextobjectid":1,
+ "nextlayerid":6,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
@@ -237,7 +282,7 @@
         {
          "columns":64,
          "firstgid":1,
-         "image":"..\/tilesets\/untitled.png",
+         "image":"..\/tilesets\/walkway.png",
          "imageheight":2048,
          "imagewidth":2048,
          "margin":0,

@@ -24,7 +24,7 @@ export class texture_t {
       srcType,
       image
     );
-      
+    
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
@@ -33,5 +33,9 @@ export class texture_t {
   
   bind() {
     gl.bindTexture(gl.TEXTURE_2D, this.texture);
+  }
+
+  destroy() {
+    gl.deleteTexture(this.texture);
   }
 }
