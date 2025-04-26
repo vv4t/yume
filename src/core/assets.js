@@ -10,6 +10,7 @@ const files = [
   [ "assets/tilesets/desert.png", "image" ],
   [ "assets/maps/untitled.tmj", "json" ],
   [ "assets/maps/desert.tmj", "json" ],
+  [ "assets/maps/lv1.tmj", "json" ],
 ];
 
 const asset_library = {};
