@@ -1,9 +1,14 @@
-** TODO **
+HUMAN: Hello.
 
-PLAYER: How do I reach a section under administration?
+PLAYER: Hello. I am an ambassador for a distant people here to
+establish peaceful relations. Do your people govern this structure?
 
-HUMAN: Ahead of here, there is an elevator which goes down.
+HUMAN: In a way? I am part of a group of nomads that roam this structure.
 
-HUMAN: Take it down to 4532 levels. There you will be within reach of the administration.
+PLAYER: How do I reach the administration?
+
+HUMAN: I'm not quite sure what you mean, but ahead of here, there is an elevator which goes down.
+
+HUMAN: Take it down to 4532 levels. Neither I nor my group have been down there but they say the city's creators dwell below.
 
 PLAYER: Thank you.
