@@ -18,7 +18,7 @@ function run() {
   input.bind_key_to_axis("a", input_axis.LEFT);
   input.bind_key_to_axis("d", input_axis.RIGHT);
 
-  bus.raise_events(["load_map_largechamber"]);
+  bus.raise_events(["load_map_desert"]);
 
   let tick = 0;
 
@@ -38,6 +38,7 @@ function run() {
       if (bus_event.startsWith("load_map_")) do_load_map(bus_event);
       if (bus_event == "play_desert") game.play_desert_cutscene();
       if (bus_event == "play_language") game.play_language_cutscene();
+      if (bus_event == "play_human") game.play_human_cutscene();
       if (bus_event == "play_elevator") game.play_elevator_cutscene();
     }
   }

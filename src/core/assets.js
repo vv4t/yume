@@ -21,6 +21,7 @@ const files = [
   [ "assets/data/LOG2.txt", "text" ],
   [ "assets/data/LOG3.txt", "text" ],
   [ "assets/data/SWARM.txt", "text" ],
+  [ "assets/data/HUMAN.txt", "text" ],
 ];
 
 const asset_library = {};

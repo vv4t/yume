@@ -142,6 +142,13 @@ If this is using one of our known standards, some distant branch of the federati
 
     this.flags["language_cutscene_has_played"] = true;
   }
+  
+  play_human_cutscene() {
+    if ("human_cutscene_has_played" in this.flags) return;
+    this.player.stop();
+    play_conversation("HUMAN", () => this.player.start());
+    this.flags["human_cutscene_has_played"] = true;
+  }
 
   play_elevator_cutscene() {
     if ("elevator_cutscene_has_played" in this.flags) return;

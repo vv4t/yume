@@ -58,7 +58,7 @@ export function submit_text(text, finish_callback) {
 function show_log(entry) {
   if (entry > 0) {
     clear_text();
-    play_text(get_asset(`assets/data/LOG${entry}.txt`), 5);
+    play_text(get_asset(`assets/data/LOG${entry}.txt`), 1);
   } else {
     text_area.value = history;
   }
