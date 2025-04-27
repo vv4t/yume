@@ -4,7 +4,6 @@ import { map_t } from "./map.js";
 import { game_t } from "./game.js";
 import { input_t, input_axis } from "./input.js";
 import { bus_t } from "./bus.js";
-import { play_conversation} from "./text.js";
 import { load_assets } from "./assets.js";
 import { renderer_t } from "../renderer/renderer.js";
 

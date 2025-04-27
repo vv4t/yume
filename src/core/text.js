@@ -31,8 +31,9 @@ document.addEventListener("keyup", (e) => {
 
 export function play_conversation(name, finish_callback) {
   const text = get_asset(`assets/data/${name}.txt`);
-  const lines = text.split("\n\n").map((chunk) => chunk.replace(/\n/g, " ") + "\n\n").reverse();
+  const lines = text.replaceAll("\r", "").split("\n\n").map((chunk) => chunk.replace(/\n/g, " ") + "\n\n").reverse();
   conversation_queue.push(...lines);
+  console.log(lines);
   submit_text(conversation_queue.pop());
   conversation_finished_callback = finish_callback;
 }
@@ -88,7 +89,7 @@ function play_text(text, delay, finish_callback) {
 
   if (conversation_queue.length > 0) show_continue.hidden = true;
 
-  text = text.split("\n\n").map((chunk) => chunk.replace(/\n/g, " ")).join("\n\n");
+  text = text.replace("\r", "").split("\n\n").map((chunk) => chunk.replace(/\n/g, " ")).join("\n\n");
   
   for (let i = 0; i < text.length; i++) {
     setTimeout(() => {

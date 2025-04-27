@@ -17,8 +17,8 @@ schemas. And many, many more to inscribe our own language onto one.
 AMALGAMATE: But it was worth the effort. What misery it is, waking up to
 someone I can't talk with. Please, tell me about yourself.
 
-PLAYER: As you have already gathered, I am a travller, an ambassador for a
-distant peoples. This structure, its announces its presence quite loudly. I
+PLAYER: As you have already gathered, I am a traveller, an ambassador for a
+distant peoples. This structure, it announces its presence quite loudly. I
 have come for my people to investigate. Please, tell who you are and about this
 place.
 
