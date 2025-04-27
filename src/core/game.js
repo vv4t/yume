@@ -2,6 +2,7 @@
 
 import { map_collider_t } from "./map_collider.js";
 import { player_t } from "./player.js";
+import { machiner_t } from "./machiner.js";
 import { swarm_t } from "./swarm.js";
 import { body_t } from "./body.js";
 import { sprite_t } from "./sprite.js";
@@ -44,6 +45,7 @@ export class game_t {
       if (spawn.name === "player") this.player.spawn(spawn.pos);
       if (spawn.name === "swarm") this.add_swarm(spawn.pos);
       if (spawn.name === "swarm_target") this.swarm_target = spawn.pos;
+      if (spawn.name === "machiner") this.add_machiner(spawn.pos);
     }
   }
 
@@ -77,11 +79,19 @@ export class game_t {
     this.swarm.push(swarm);
   }
 
+  add_machiner(pos) {
+    const id = this.add_entity();
+    const machiner = new machiner_t(id, pos);
+    this.c_body[id] = machiner.body;
+    this.c_sprite[id] = machiner.sprite;
+  }
+
   show_swarm_combined(pos) {
     const body = new body_t();
     const sprite = new sprite_t(new vec2_t(2, 2), 112);
 
     const id = this.add_entity();
+    const swarm = new swarm_t(id, pos);
     this.c_body[id] = body;
     this.c_sprite[id] = sprite;
 

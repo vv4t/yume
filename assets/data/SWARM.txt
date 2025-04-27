@@ -10,7 +10,7 @@ use of my stone.
 
 PLAYER: Were you the one that carved the stone?
 
-AMALGAMATE: I've been awoken by many travllers. It took a few to learn some
+AMALGAMATE: I've been awoken by many travellers in. It took a few to learn some
 common passerby languages. It took many more to learn of their language
 schemas. And many, many more to inscribe our own language onto one.
 
@@ -19,10 +19,13 @@ someone I can't talk with. Please, tell me about yourself.
 
 PLAYER: As you have already gathered, I am a traveller, an ambassador for a
 distant peoples. This structure, it announces its presence quite loudly. I
-have come for my people to investigate. Please, tell who you are and about this
+have come to investigate for my people. Please, tell who you are and about this
 place.
 
 AMALGAMATE: I remember when the starry sky would also stay still from moment to
 moment. Now, every time as I awaken, they seem to have ran off to some
 different spot. The only thing still here as always, the slow dull drones of
 the net.
+
+AMALGAMATE: I'll have to be gone now, as the sun will set soon. May your work bear
+fruit for your people.
