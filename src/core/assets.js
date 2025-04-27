@@ -14,12 +14,15 @@ const files = [
   [ "assets/maps/walkway.tmj", "json" ],
   [ "assets/maps/desert.tmj", "json" ],
   [ "assets/maps/stairs.tmj", "json" ],
+  [ "assets/maps/after_elevator.tmj", "json" ],
   [ "assets/maps/largechamber.tmj", "json" ],
   [ "assets/maps/finalchamber.tmj", "json" ],
   [ "assets/data/LOG1.txt", "text" ],
   [ "assets/data/LOG2.txt", "text" ],
+  [ "assets/data/LOG3.txt", "text" ],
   [ "assets/data/SWARM.txt", "text" ],
   [ "assets/data/MACHINER.txt", "text" ],
+  [ "assets/data/HUMAN.txt", "text" ],
 ];
 
 const asset_library = {};

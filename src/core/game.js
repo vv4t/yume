@@ -17,6 +17,11 @@ export class game_t {
     this.flags = {};
 
     this.reset_entities();
+
+    setTimeout(() => {
+      const line = "MISSION: Survey the anomolous body and report back any findings. Signatures indicate the intelligent life should exist. Make contact and establish relations if possible.\n\n-- Entry for LOG 1 saved, Anomolous Megastructure --\n\n";
+      submit_text(line, () => make_log_available(1));
+    }, 500);
   }
   
   update() {
@@ -114,7 +119,7 @@ export class game_t {
           sprite.stop();
           this.delete_entity(id);
           make_log_available(3);
-          submit_text("-- Entry for LOG 3 saved, The Amalgamate Creature\n\n --");
+          submit_text("-- Entry for LOG 3 saved, The Amalgamate Creature --\n\n");
         }, 1000);
       });
     }, 1200);
@@ -151,6 +156,45 @@ export class game_t {
       }, 2500);
     });
     this.flags["final_chamber_cutscene_has_played"] = true;
+  }
+  play_language_cutscene() {
+    if ("language_cutscene_has_played" in this.flags) return;
+
+    this.player.stop();
+
+    setTimeout(() => {
+      const line = `PLAYER: This appears to be a standard language translation schema, an old one but recognisable.
+If this is using one of our known standards, some distant branch of the federation must have also made contact at some point.
+
+-- Entry for LOG 2 saved, Language --
+
+`;
+      submit_text(line, () => {
+        make_log_available(2);
+        this.player.start();
+      });
+    }, 500);
+
+    this.flags["language_cutscene_has_played"] = true;
+  }
+  
+  play_human_cutscene() {
+    if ("human_cutscene_has_played" in this.flags) return;
+    this.player.stop();
+    play_conversation("HUMAN", () => this.player.start());
+    this.flags["human_cutscene_has_played"] = true;
+  }
+
+  play_elevator_cutscene() {
+    if ("elevator_cutscene_has_played" in this.flags) return;
+    
+    this.player.stop();
+    const line = `Starting the elevator...\n\n`;
+    submit_text(line, () => {
+      setTimeout(() => this.bus.raise_events(["load_map_after_elevator"]), 1000);
+    });
+
+    this.flags["elevator_cutscene_has_played"] = true;
   }
 
   sprite_animate() {

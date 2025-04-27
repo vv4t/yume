@@ -1,0 +1,9 @@
+** TODO **
+
+PLAYER: How do I reach a section under administration?
+
+HUMAN: Ahead of here, there is an elevator which goes down.
+
+HUMAN: Take it down to 4532 levels. There you will be within reach of the administration.
+
+PLAYER: Thank you.

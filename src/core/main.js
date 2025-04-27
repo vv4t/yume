@@ -38,6 +38,9 @@ function run() {
       if (bus_event.startsWith("load_map_")) do_load_map(bus_event);
       if (bus_event == "play_desert") game.play_desert_cutscene();
       if (bus_event == "play_final_chamber") game.play_final_chamber_cutscene();
+      if (bus_event == "play_language") game.play_language_cutscene();
+      if (bus_event == "play_human") game.play_human_cutscene();
+      if (bus_event == "play_elevator") game.play_elevator_cutscene();
     }
   }
 
