@@ -11,7 +11,7 @@ export class sprite_renderer_t {
     this.mesh_buffer = mesh_buffer;
     this.sprite_sheet = new sprite_sheet_t("assets/tilesets/sprites.png");
     this.num_vertices = 0;
-    this.mesh = this.mesh_buffer.allocate(6 * MAX_TILES);
+    this.mesh = this.mesh_buffer.allocate(32 * MAX_TILES);
     this.game = game;
   }
   

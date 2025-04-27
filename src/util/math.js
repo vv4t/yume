@@ -64,6 +64,10 @@ export class vec3_t {
     this.y = v.y;
     this.z = v.z;
   }
+
+  dot(v) {
+    return this.x * v.x + this.y * v.y + this.z * v.z;
+  }
 }
 
 export class vec4_t {

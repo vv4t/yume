@@ -504,6 +504,18 @@
                  "width":0,
                  "x":640,
                  "y":1056
+                }, 
+                {
+                 "height":0,
+                 "id":17,
+                 "name":"swarm_target",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":574,
+                 "y":1076
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -545,7 +557,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":17,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
