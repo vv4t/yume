@@ -5,11 +5,14 @@ body {
   overflow-x: hidden;
   background-color: black;
   display: flex;
+  font-family: monospace;
 }
 
 .side {
   margin-left: 5px;
   display: block;
+  color: #aaffaa;
+  text-align: center;
 }
 
 button {

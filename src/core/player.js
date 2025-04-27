@@ -10,14 +10,27 @@ export class player_t {
     this.id = id;
     this.body = new body_t();
     this.sprite = new sprite_t(new vec2_t(1, 2), 0);
+    this.stopped = false;
     this.tick = 0;
   }
 
   spawn(pos) {
     this.body.pos = pos;
   }
+
+  stop() {
+    this.body.vel = new vec3_t();
+    this.sprite.stop();
+    this.stopped = true;
+  }
+
+  start() {
+    this.stopped = false;
+  }
   
   move(input) {
+    if (this.stopped) return;
+
     let move = new vec3_t();
     
     if (input.is_axis(input_axis.UP)) move.y += 1.0;

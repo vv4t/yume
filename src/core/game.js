@@ -6,7 +6,7 @@ import { swarm_t } from "./swarm.js";
 import { body_t } from "./body.js";
 import { sprite_t } from "./sprite.js";
 import { vec2_t, vec3_t } from "../util/math.js";
-import { play_conversation} from "./text.js";
+import { play_conversation } from "./text.js";
 
 
 export class game_t {
@@ -47,6 +47,11 @@ export class game_t {
     }
   }
 
+  delete_entity(id) {
+    delete this.c_body[id];
+    delete this.c_sprite[id];
+  }
+
   swarm_update() {
     if (!("swarm_should_move_to_target" in this.flags)) return;
     if ("swarm_has_combined" in this.flags) return;
@@ -57,8 +62,7 @@ export class game_t {
     } else {
       for (const swarm of this.swarm) {
         if (swarm.move_to_target(this.swarm_target)) {
-          delete this.c_body[swarm.id];
-          delete this.c_sprite[swarm.id];
+          this.delete_entity(swarm.id);
           this.swarm.splice(this.swarm.indexOf(swarm), 1);
         }
       }
@@ -77,21 +81,35 @@ export class game_t {
     const body = new body_t();
     const sprite = new sprite_t(new vec2_t(2, 2), 112);
 
+    const id = this.add_entity();
+    this.c_body[id] = body;
+    this.c_sprite[id] = sprite;
+
     body.pos = pos;
 
     sprite.animate(112, 7, 0.1);
+
     setTimeout(() => {
       sprite.animate(6, 1, 0.1)
       sprite.stop();      
     }, 1000);
 
-    const id = this.add_entity();
-    this.c_body[id] = body;
-    this.c_sprite[id] = sprite;
+    setTimeout(() => {
+      play_conversation("SWARM", () => {
+        sprite.animate(154, 7, 0.1);
+        setTimeout(() => {
+          this.player.start();
+          sprite.stop();
+          this.delete_entity(id);
+        }, 1000);
+      });
+    }, 1200);
   }
 
   play_desert_cutscene() {
     if ("desert_cutscene_has_played" in this.flags) return;
+
+    this.player.stop();
     
     this.flags["desert_cutscene_has_played"] = true;
     this.flags["swarm_should_move_to_target"] = true;

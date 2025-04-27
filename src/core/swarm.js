@@ -16,6 +16,6 @@ export class swarm_t {
   move_to_target(target) {
     const delta = target.add(this.body.pos.mulf(-1));
     this.body.vel = delta.mulf(0.05);
-    return delta.dot(delta) < 1.0;
+    return delta.dot(delta) < 0.25;
   }
 };
