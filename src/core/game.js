@@ -18,6 +18,7 @@ export class game_t {
     this.player.move(this.input);
     this.body_collide();
     this.body_integrate();
+    this.sprite_animate();
   }
 
   load_map(map) {
@@ -27,6 +28,16 @@ export class game_t {
     for (const spawn of map.spawns) {
       if (spawn.name === "player") {
         this.player.spawn(spawn.pos);
+      }
+    }
+  }
+
+  sprite_animate() {
+    for (const entity in this.c_sprite) {
+      const sprite = this.c_sprite[entity];
+      if (sprite.frame_count > 0) {
+        sprite.frame_time += sprite.frame_delta;
+        sprite.sprite_id = sprite.frame_start + (Math.floor(sprite.frame_time) % (sprite.frame_count));
       }
     }
   }
