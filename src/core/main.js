@@ -37,6 +37,7 @@ function run() {
     for (const bus_event of events) {
       if (bus_event.startsWith("load_map_")) do_load_map(bus_event);
       if (bus_event == "play_desert") game.play_desert_cutscene();
+      if (bus_event == "play_final_chamber") game.play_final_chamber_cutscene();
     }
   }
 

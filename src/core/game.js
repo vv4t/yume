@@ -34,6 +34,7 @@ export class game_t {
     this.create_player();
     this.swarm = [];
     this.swarm_target = null;
+    this.machiner = null;
   }
 
   load_map(map) {
@@ -84,6 +85,7 @@ export class game_t {
     const machiner = new machiner_t(id, pos);
     this.c_body[id] = machiner.body;
     this.c_sprite[id] = machiner.sprite;
+    this.machiner = machiner;
   }
 
   show_swarm_combined(pos) {
@@ -125,6 +127,30 @@ export class game_t {
     
     this.flags["desert_cutscene_has_played"] = true;
     this.flags["swarm_should_move_to_target"] = true;
+  }
+
+  play_final_chamber_cutscene() {
+    if ("final_chamber_cutscene_has_played" in this.flags) return;
+
+    this.player.stop();
+    this.machiner.sprite.animate(11, 1, 1.0);
+    play_conversation("MACHINER", () => {
+      this.machiner.sprite.animate(31, 1, 1.0);
+      make_log_available(5);
+      submit_text("-- Entry for LOG 5 saved, The Machine People\n\n --");
+
+      const moveInterval = setInterval(() => {
+        if (this.machiner.move_to_target(new vec3_t(15, 4, 0))) clearInterval(moveInterval);
+      }, 100);
+
+      setTimeout(() => {
+        this.player.sprite.animate(145, 3, 0.1);
+      }, 2000);
+      setTimeout(() => {
+        this.player.sprite.animate(147, 2, 0.1);
+      }, 2500);
+    });
+    this.flags["final_chamber_cutscene_has_played"] = true;
   }
 
   sprite_animate() {
