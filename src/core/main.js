@@ -18,7 +18,7 @@ function run() {
   input.bind_key_to_axis("a", input_axis.LEFT);
   input.bind_key_to_axis("d", input_axis.RIGHT);
 
-  bus.raise_events(["load_map_desert"]);
+  bus.raise_events(["load_map_largechamber"]);
 
   let tick = 0;
 
