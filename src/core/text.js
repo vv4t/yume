@@ -29,6 +29,10 @@ document.addEventListener("keyup", (e) => {
   }
 });
 
+export function make_log_available(entry) {
+  document.getElementById(`log_${entry}`).hidden = false;
+}
+
 export function play_conversation(name, finish_callback) {
   const text = get_asset(`assets/data/${name}.txt`);
   const lines = text.replaceAll("\r", "").split("\n\n").map((chunk) => chunk.replace(/\n/g, " ") + "\n\n").reverse();
