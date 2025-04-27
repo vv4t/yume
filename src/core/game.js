@@ -6,7 +6,7 @@ import { swarm_t } from "./swarm.js";
 import { body_t } from "./body.js";
 import { sprite_t } from "./sprite.js";
 import { vec2_t, vec3_t } from "../util/math.js";
-import { play_conversation } from "./text.js";
+import { submit_text, play_conversation, make_log_available } from "./text.js";
 
 
 export class game_t {
@@ -101,6 +101,8 @@ export class game_t {
           this.player.start();
           sprite.stop();
           this.delete_entity(id);
+          make_log_available(3);
+          submit_text("-- Entry for LOG 3 saved, The Amalgamate Creature\n\n --");
         }, 1000);
       });
     }, 1200);
