@@ -4,7 +4,7 @@ import { get_asset } from "../core/assets.js";
 
 let history = "";
 const conversation_queue = [];
-let text_is_locked = true;
+let text_is_locked = false;
 let conversation_finished_callback = null;
 
 const show_continue = document.getElementById("continue");
@@ -36,15 +36,23 @@ export function make_log_available(entry) {
 export function play_conversation(name, finish_callback) {
   const text = get_asset(`assets/data/${name}.txt`);
   const lines = text.replaceAll("\r", "").split("\n\n").map((chunk) => chunk.replace(/\n/g, " ") + "\n\n").reverse();
-  conversation_queue.push(...lines);
-  console.log(lines);
-  submit_text(conversation_queue.pop());
   conversation_finished_callback = finish_callback;
+  conversation_queue.push(...lines);
+  submit_text(conversation_queue.pop());
 }
 
 export function submit_text(text, finish_callback) {
-  history += text;
-  play_text(text, 10, finish_callback);
+  const retry_conversation = () => {
+    if (text_is_locked) {
+      setTimeout(retry_conversation, 500);
+    } else {
+      show_log(0);
+      history += text;
+      play_text(text, 10, finish_callback);
+    }
+  };
+
+  retry_conversation();
 }
 
 function show_log(entry) {
